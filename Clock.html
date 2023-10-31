@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Clock</title>
+    <link rel="stylesheet" href="Clock.css">
+</head>
+<body class="bd">
+    <div class="Clockmain">
+        <p class="dis">
+        <span id="hr" ></span>:
+        <span id="min" ></span>:
+        <span id="sec" ></span>
+    </p>
+
+    </div>
+    <script>
+        let hour=document.getElementById("hr");
+        let min=document.getElementById("min");
+        let sec=document.getElementById("sec");
+
+        function updateTime() {
+            let tm =new Date();
+            let hr=tm.getHours();
+            let mn=tm.getMinutes();
+            let sc=tm.getSeconds();
+            if (hr>12) {
+                hour.innerHTML=hr-12;
+                min.innerHTML=mn;
+                sec.innerHTML=sc+'pm';
+            } else {
+                hour.innerHTML=hr;
+                min.innerHTML=mn;
+                sec.innerHTML=sc+'am';
+            }
+            
+            
+        }
+        setInterval(updateTime,1000)
+
+    </script>
+    
+</body>
+</html>
